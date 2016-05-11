@@ -28,7 +28,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenu1 = new javax.swing.JMenu();
-        jInternalFrame1 = new javax.swing.JInternalFrame();
+        jInternalFrameBemVindo = new javax.swing.JInternalFrame();
+        jPanelInterno = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jButtonCadMedico = new javax.swing.JButton();
+        jButtonCadEnfermeiras = new javax.swing.JButton();
+        jButtonCadPaciente = new javax.swing.JButton();
+        jButtonCadAgenda = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabelPainelFundo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jButtonFecharBemVindo = new javax.swing.JButton();
         jLabelFundoPrincipal = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuCadastro = new javax.swing.JMenu();
@@ -48,26 +58,71 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setTitle("Clinica Doutora Camila Niches");
         getContentPane().setLayout(null);
 
-        jInternalFrame1.setVisible(true);
+        jInternalFrameBemVindo.setTitle("Bem-Vindo");
+        jInternalFrameBemVindo.setVisible(true);
+        jInternalFrameBemVindo.getContentPane().setLayout(null);
 
-        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
-        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
-        jInternalFrame1Layout.setHorizontalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 594, Short.MAX_VALUE)
-        );
-        jInternalFrame1Layout.setVerticalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
-        );
+        jPanelInterno.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanelInterno.setLayout(null);
 
-        getContentPane().add(jInternalFrame1);
-        jInternalFrame1.setBounds(0, 50, 610, 410);
+        jLabel2.setText("Cadastros:");
+        jPanelInterno.add(jLabel2);
+        jLabel2.setBounds(70, 40, 80, 14);
+
+        jButtonCadMedico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/medico.png"))); // NOI18N
+        jButtonCadMedico.setToolTipText("Médico");
+        jPanelInterno.add(jButtonCadMedico);
+        jButtonCadMedico.setBounds(50, 70, 100, 100);
+
+        jButtonCadEnfermeiras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/enfermeira.png"))); // NOI18N
+        jButtonCadEnfermeiras.setToolTipText("Enfermeira");
+        jPanelInterno.add(jButtonCadEnfermeiras);
+        jButtonCadEnfermeiras.setBounds(160, 70, 100, 100);
+
+        jButtonCadPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/paciente.png"))); // NOI18N
+        jButtonCadPaciente.setToolTipText("paciente");
+        jPanelInterno.add(jButtonCadPaciente);
+        jButtonCadPaciente.setBounds(270, 70, 100, 100);
+
+        jButtonCadAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/agenda.png"))); // NOI18N
+        jButtonCadAgenda.setToolTipText("Agenda");
+        jPanelInterno.add(jButtonCadAgenda);
+        jButtonCadAgenda.setBounds(380, 70, 100, 100);
+
+        jLabel3.setText("Agenda:");
+        jLabel3.setToolTipText("");
+        jPanelInterno.add(jLabel3);
+        jLabel3.setBounds(410, 40, 50, 20);
+
+        jLabelPainelFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/internalframe.png"))); // NOI18N
+        jPanelInterno.add(jLabelPainelFundo);
+        jLabelPainelFundo.setBounds(10, 10, 850, 220);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Sistema de Gerenciamento de: ");
+        jPanelInterno.add(jLabel1);
+        jLabel1.setBounds(30, 10, 260, 22);
+
+        jInternalFrameBemVindo.getContentPane().add(jPanelInterno);
+        jPanelInterno.setBounds(0, 50, 870, 240);
+
+        jButtonFecharBemVindo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/exit.png"))); // NOI18N
+        jButtonFecharBemVindo.setToolTipText("Fechar Tela Bem vindo");
+        jButtonFecharBemVindo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFecharBemVindoActionPerformed(evt);
+            }
+        });
+        jInternalFrameBemVindo.getContentPane().add(jButtonFecharBemVindo);
+        jButtonFecharBemVindo.setBounds(803, 0, 50, 50);
+
+        getContentPane().add(jInternalFrameBemVindo);
+        jInternalFrameBemVindo.setBounds(0, 50, 890, 330);
 
         jLabelFundoPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundo_telaprincipal.jpg"))); // NOI18N
         jLabelFundoPrincipal.setText("Sistema Clina da Camila");
         getContentPane().add(jLabelFundoPrincipal);
-        jLabelFundoPrincipal.setBounds(0, 0, 610, 460);
+        jLabelFundoPrincipal.setBounds(0, 0, 890, 390);
 
         jMenuCadastro.setText("Cadastro");
 
@@ -103,19 +158,34 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuSair.setText("Sair");
 
         jMenuItemSair.setText("Sair");
+        jMenuItemSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemSairActionPerformed(evt);
+            }
+        });
         jMenuSair.add(jMenuItemSair);
 
         jMenuBar1.add(jMenuSair);
 
         setJMenuBar(jMenuBar1);
 
-        setSize(new java.awt.Dimension(631, 526));
+        setSize(new java.awt.Dimension(909, 455));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jButtonFecharBemVindoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFecharBemVindoActionPerformed
+        //fecha a tela bem vindo:
+        jInternalFrameBemVindo.dispose();
+    }//GEN-LAST:event_jButtonFecharBemVindoActionPerformed
+
+    private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSairActionPerformed
+        // fecha todo o sistema:
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItemSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,8 +223,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JButton jButtonCadAgenda;
+    private javax.swing.JButton jButtonCadEnfermeiras;
+    private javax.swing.JButton jButtonCadMedico;
+    private javax.swing.JButton jButtonCadPaciente;
+    private javax.swing.JButton jButtonFecharBemVindo;
+    private javax.swing.JInternalFrame jInternalFrameBemVindo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelFundoPrincipal;
+    private javax.swing.JLabel jLabelPainelFundo;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
@@ -167,5 +246,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemBenvindo;
     private javax.swing.JMenuItem jMenuItemSair;
     private javax.swing.JMenu jMenuSair;
+    private javax.swing.JPanel jPanelInterno;
     // End of variables declaration//GEN-END:variables
 }
