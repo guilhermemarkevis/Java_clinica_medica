@@ -5,17 +5,20 @@
  */
 package visão;
 
+import controle.ConexaoBD;
+
 /**
  *
  * @author joao
  */
 public class TelaPrincipal extends javax.swing.JFrame {
-
+    ConexaoBD conecta = new ConexaoBD();
     /**
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
         initComponents();
+        conecta.conexao();
     }
 
     /**
@@ -42,7 +45,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabelFundoPrincipal = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuCadastro = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItemCadMedico = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -71,6 +74,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jButtonCadMedico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/medico.png"))); // NOI18N
         jButtonCadMedico.setToolTipText("Médico");
+        jButtonCadMedico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadMedicoActionPerformed(evt);
+            }
+        });
         jPanelInterno.add(jButtonCadMedico);
         jButtonCadMedico.setBounds(50, 70, 100, 100);
 
@@ -96,7 +104,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabelPainelFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/internalframe.png"))); // NOI18N
         jPanelInterno.add(jLabelPainelFundo);
-        jLabelPainelFundo.setBounds(10, 10, 850, 220);
+        jLabelPainelFundo.setBounds(10, 10, 840, 220);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Sistema de Gerenciamento de: ");
@@ -104,7 +112,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel1.setBounds(30, 10, 260, 22);
 
         jInternalFrameBemVindo.getContentPane().add(jPanelInterno);
-        jPanelInterno.setBounds(0, 50, 870, 240);
+        jPanelInterno.setBounds(10, 50, 860, 240);
 
         jButtonFecharBemVindo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/exit.png"))); // NOI18N
         jButtonFecharBemVindo.setToolTipText("Fechar Tela Bem vindo");
@@ -126,13 +134,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuCadastro.setText("Cadastro");
 
-        jMenuItem2.setText("Médicos");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemCadMedico.setText("Médicos");
+        jMenuItemCadMedico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jMenuItemCadMedicoActionPerformed(evt);
             }
         });
-        jMenuCadastro.add(jMenuItem2);
+        jMenuCadastro.add(jMenuItemCadMedico);
 
         jMenuItem3.setText("Pacientes");
         jMenuCadastro.add(jMenuItem3);
@@ -151,6 +159,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuFerramentas.setText("Ferramentas");
 
         jMenuItemBenvindo.setText("Tela Bem-vindo");
+        jMenuItemBenvindo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemBenvindoActionPerformed(evt);
+            }
+        });
         jMenuFerramentas.add(jMenuItemBenvindo);
 
         jMenuBar1.add(jMenuFerramentas);
@@ -173,9 +186,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    private void jMenuItemCadMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadMedicoActionPerformed
+        // A linha abaixo chama o formulario medico:
+        FormMedico tela = new FormMedico();
+        tela.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItemCadMedicoActionPerformed
 
     private void jButtonFecharBemVindoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFecharBemVindoActionPerformed
         //fecha a tela bem vindo:
@@ -184,8 +200,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSairActionPerformed
         // fecha todo o sistema:
+        conecta.desconecta();
         System.exit(0);
     }//GEN-LAST:event_jMenuItemSairActionPerformed
+
+    private void jMenuItemBenvindoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBenvindoActionPerformed
+        // chamar a tela do boas vindas:
+        TelaPrincipal tela = new TelaPrincipal();
+        tela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenuItemBenvindoActionPerformed
+
+    private void jButtonCadMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadMedicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCadMedicoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,11 +267,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCadastro;
     private javax.swing.JMenu jMenuFerramentas;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItemBenvindo;
+    private javax.swing.JMenuItem jMenuItemCadMedico;
     private javax.swing.JMenuItem jMenuItemSair;
     private javax.swing.JMenu jMenuSair;
     private javax.swing.JPanel jPanelInterno;

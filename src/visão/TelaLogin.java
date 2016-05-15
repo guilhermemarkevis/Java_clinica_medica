@@ -5,6 +5,8 @@
  */
 package visão;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author joao
@@ -57,6 +59,11 @@ public class TelaLogin extends javax.swing.JFrame {
         jPasswordFieldSenha.setBounds(240, 100, 190, 30);
 
         jButtonSair.setText("Sair");
+        jButtonSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSairActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonSair);
         jButtonSair.setBounds(350, 140, 80, 30);
 
@@ -79,13 +86,26 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void jButtonAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAcessarActionPerformed
         // a linha abaixo chama a tela principal:
-        TelaPrincipal tela = new TelaPrincipal();
-        tela.setVisible(true);
-        dispose();
-        
-        
+        //TelaPrincipal tela = new TelaPrincipal();
+        //tela.setVisible(true);
+        //dispose();
+        //condicao para acessar ou nao na tela de login
+        if(jTextFieldUsuario.getText().equals("admin") && jPasswordFieldSenha.getText().equals("1234")){
+TelaPrincipal tela = new TelaPrincipal();
+tela.setVisible(true);
+dispose();
+       
+        } else {
+    JOptionPane.showMessageDialog(rootPane, "Senha ou usuário Invalidos!");
+    }
         
     }//GEN-LAST:event_jButtonAcessarActionPerformed
+
+    private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
+        // a linha abaixo fecha todo o sistema:
+        System.exit(0);
+        
+    }//GEN-LAST:event_jButtonSairActionPerformed
 
     /**
      * @param args the command line arguments
