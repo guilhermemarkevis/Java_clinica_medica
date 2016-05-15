@@ -122,7 +122,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jInternalFrameBemVindo.getContentPane().add(jButtonFecharBemVindo);
-        jButtonFecharBemVindo.setBounds(803, 0, 50, 50);
+        jButtonFecharBemVindo.setBounds(820, 0, 50, 50);
 
         getContentPane().add(jInternalFrameBemVindo);
         jInternalFrameBemVindo.setBounds(0, 50, 890, 330);
@@ -212,7 +212,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemBenvindoActionPerformed
 
     private void jButtonCadMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadMedicoActionPerformed
-        // TODO add your handling code here:
+    // A linha abaixo chama o formulario medico:
+        FormMedico tela = new FormMedico();
+        tela.setVisible(true);
     }//GEN-LAST:event_jButtonCadMedicoActionPerformed
 
     /**
