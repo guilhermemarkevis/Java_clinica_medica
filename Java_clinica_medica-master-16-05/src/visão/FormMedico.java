@@ -5,10 +5,10 @@
  */
 package visão;
 
-import controle.ConexaoBD;
-import controle.ControleMedico;
+import modeloConection.ConexaoBD;
+import modeloDao.DaoMedico;
 import java.util.HashSet;
-import modeloBeans.ModeloMedico;
+import modeloBeans.BeansMedico;
 
 /**
  *
@@ -16,8 +16,8 @@ import modeloBeans.ModeloMedico;
  */
 public class FormMedico extends javax.swing.JFrame {
 
-    ModeloMedico mod = new ModeloMedico();
-    ControleMedico control = new ControleMedico();
+    BeansMedico mod = new BeansMedico();
+    DaoMedico control = new DaoMedico();
     ConexaoBD conex = new ConexaoBD();
         
     public FormMedico() {

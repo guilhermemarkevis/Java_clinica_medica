@@ -5,7 +5,7 @@
  */
 package visão;
 
-import controle.ConexaoBD;
+import modeloConection.ConexaoBD;
 
 /**
  *

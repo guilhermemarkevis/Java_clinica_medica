@@ -5,7 +5,7 @@
  */
 package modeloBeans;
 
-public class ModeloMedico {
+public class BeansMedico {
     
     private int codigo;
     private String nome;

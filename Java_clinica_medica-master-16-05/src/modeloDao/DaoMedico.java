@@ -3,18 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controle;
+package modeloDao;
 
+import modeloConection.ConexaoBD;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import modeloBeans.ModeloMedico;
+import modeloBeans.BeansMedico;
 
-public class ControleMedico {
+public class DaoMedico {
     ConexaoBD conex = new ConexaoBD();
-    ModeloMedico mod = new ModeloMedico();
+    BeansMedico mod = new BeansMedico();
 
-public void Salvar(ModeloMedico mod){
+public void Salvar(BeansMedico mod){
     conex.conexao();
 try{
     PreparedStatement pst = conex.con.prepareStatement("insert into medicos (nome_medico, especialidade_medico,crm_medico) values(?,?,?)");
